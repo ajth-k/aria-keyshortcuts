@@ -1,6 +1,6 @@
-# aria-keyshortcuts
+# react-aria-keyshortcuts
 
-## **react-aria-keyshortcuts** is a lightweight library designed to simplify the implementation of keyboard shortcuts in your react web applications.
+**react-aria-keyshortcuts** is a lightweight library designed to simplify the implementation of keyboard shortcuts in your react web applications.
 
 ## Key Features
 
@@ -126,4 +126,4 @@ Contributions are welcome! Whether it’s a bug fix, feature request, or documen
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](/LICENSE)() file for details.
+This project is licensed under the MIT License. See the [LICENSE](/LICENSE) file for details.
