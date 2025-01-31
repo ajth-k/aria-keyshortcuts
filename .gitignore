@@ -269,3 +269,4 @@ sketch
 
 # End of https://www.toptal.com/developers/gitignore/api/node,react,jetbrains
 dist
+docs/node_modules
