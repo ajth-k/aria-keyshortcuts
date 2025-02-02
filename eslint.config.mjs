@@ -9,12 +9,18 @@ export default [
     files: ["src/*.{js,mjs,cjs,ts,jsx,tsx}"],
     ignores: ["docs/*"],
     settings: { react: { version: "detect" } },
-    rules: {
-      "react/react-in-jsx-scope": "off",
-    },
   },
-  { languageOptions: { globals: globals.browser } },
+  {
+    languageOptions: { globals: globals.browser },
+  },
+
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
+  {
+    rules: {
+      "react/jsx-uses-react": "off",
+      "react/react-in-jsx-scope": "off",
+    },
+  },
 ];
