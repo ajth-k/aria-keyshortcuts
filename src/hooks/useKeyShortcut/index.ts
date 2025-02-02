@@ -4,11 +4,8 @@ import { KeyShortcutProps } from "./types";
 import { getKeyCap } from "../../utils/keycap";
 
 const useKeyShortcut = <T extends HTMLElement>(args: KeyShortcutProps<T>) => {
-  const {
-    key,
-    action,
-    options: { scopes = "__global", ref },
-  } = args;
+  const { key, action } = args;
+  const { ref, scopes = "__global" } = args.options ?? {};
   const { isInScopes } = useShortcutScope();
   const actionRef = useRef(action);
   useLayoutEffect(() => {
