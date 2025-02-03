@@ -2,12 +2,13 @@ import { Key } from "../types/keys";
 import { keyMap } from "./map";
 
 export const getKeyCaps = (key: Key) => {
+  if (detectTouchscreen()) return null;
   return key.split("+").map((key) => {
     return { key, symbol: getKeySymbol(key) ?? key };
   });
 };
 
-function getKeySymbol(key: string) {
+const getKeySymbol = (key: string) => {
   const symbol = keyMap[key];
   if (!symbol || typeof symbol === "string") return symbol;
   const userAgent = navigator.userAgent.toLowerCase(),
@@ -25,4 +26,23 @@ function getKeySymbol(key: string) {
   }
 
   return symbol[os];
-}
+};
+
+export const detectTouchscreen = () => {
+  let result = false;
+  if (window.PointerEvent && "maxTouchPoints" in navigator) {
+    if (navigator.maxTouchPoints > 0) {
+      result = true;
+    }
+  } else {
+    if (
+      window.matchMedia &&
+      window.matchMedia("(any-pointer:coarse)").matches
+    ) {
+      result = true;
+    } else if (window.TouchEvent || "ontouchstart" in window) {
+      result = true;
+    }
+  }
+  return result;
+};
