@@ -2,12 +2,12 @@ import useKeyShortcut from "../../../hooks/useKeyShortcut";
 
 const HelpButton = () => {
   const { keyCap } = useKeyShortcut({
-    key: "meta+h",
+    key: "Meta+h",
     action: () => {
       alert("Alert");
     },
   });
-  return <button>--help {keyCap}</button>;
+  return <button>--help {JSON.stringify(keyCap)}</button>;
 };
 
 export default HelpButton;
