@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useLayoutEffect, useRef } from "react";
 import useShortcutScope from "../useShortcutScope";
 import { KeyShortcutProps } from "./types";
-import { getKeyCap } from "../../utils/keycap";
+import { getKeyCaps } from "../../utils/keycap";
 
 const useKeyShortcut = <T extends HTMLElement>(args: KeyShortcutProps<T>) => {
   const { key, action } = args;
@@ -11,19 +11,16 @@ const useKeyShortcut = <T extends HTMLElement>(args: KeyShortcutProps<T>) => {
   useLayoutEffect(() => {
     actionRef.current = action;
   });
-  const handleKeyPress = useCallback(
-    (event: KeyboardEvent) => {
-      const [targetKey, ...holdedKeys] = key.split("+").reverse();
-      const isTargetKeyPressed =
-        targetKey === event.key &&
-        holdedKeys.every((key) => {
-          return event[`${key}Key`];
-        });
+  const handleKeyPress = useCallback((event: KeyboardEvent) => {
+    const [targetKey, ...holdedKeys] = key.split("+").reverse();
+    const isTargetKeyPressed =
+      targetKey === event.key &&
+      holdedKeys.every((key) => {
+        return event.getModifierState(key);
+      });
 
-      if (isInScopes(scopes) && isTargetKeyPressed) actionRef.current(event);
-    },
-    [isInScopes, key, scopes],
-  );
+    if (isInScopes(scopes) && isTargetKeyPressed) actionRef.current(event);
+  }, []);
   useEffect(() => {
     ref?.current.setAttribute("aria-keyshortcuts", key);
     const targetNode = ref?.current ?? document;
@@ -32,11 +29,11 @@ const useKeyShortcut = <T extends HTMLElement>(args: KeyShortcutProps<T>) => {
     return () =>
       targetNode.removeEventListener(
         "keydown",
-        handleKeyPress as EventListener,
+        handleKeyPress as EventListener
       );
   }, [handleKeyPress, ref]);
   return {
-    keyCap: getKeyCap(key),
+    keyCap: getKeyCaps(key),
   };
 };
 export default useKeyShortcut;

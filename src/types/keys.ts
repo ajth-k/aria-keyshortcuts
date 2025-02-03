@@ -96,7 +96,17 @@ type NonModifierKey =
   | "PrintScreen"
   | "ContextMenu";
 
-type ModifierKey = "ctrl" | "shift" | "alt" | "meta";
+type ModifierKey =
+  | "Alt"
+  | "AltGraph"
+  | "CapsLock"
+  | "Control"
+  | "Fn"
+  | "Meta"
+  | "NumLock"
+  | "OS"
+  | "ScrollLock"
+  | "Shift";
 
 export type Key =
   | NonModifierKey

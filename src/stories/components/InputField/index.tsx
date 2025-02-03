@@ -16,7 +16,7 @@ const InputField = () => {
     },
   });
   const { keyCap: focusKeyCap } = useKeyShortcut({
-    key: "meta+/",
+    key: "Fn+/",
     action: () => {
       ref.current?.focus();
     },
@@ -37,11 +37,11 @@ const InputField = () => {
       <span className="input__kbd">
         {isFocused ? (
           <>
-            Press <kbd>{keyCap}</kbd> to add todo
+            Press <kbd>{JSON.stringify(keyCap)}</kbd> to add todo
           </>
         ) : (
           <>
-            Press <kbd>{focusKeyCap}</kbd> to start typing
+            Press <kbd>{JSON.stringify(focusKeyCap)}</kbd> to start typing
           </>
         )}
       </span>
