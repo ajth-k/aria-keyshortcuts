@@ -94,22 +94,14 @@ type NonModifierKey =
   | "ScrollLock"
   | "Pause"
   | "PrintScreen"
-  | "ContextMenu";
+  | "ContextMenu"
+  | "Dead";
 
-type ModifierKey =
-  | "Alt"
-  | "AltGraph"
-  | "CapsLock"
-  | "Control"
-  | "Fn"
-  | "Meta"
-  | "NumLock"
-  | "OS"
-  | "ScrollLock"
-  | "Shift";
+type ModifierKey = "Alt" | "AltGraph" | "Control" | "Meta" | "Shift";
 
 export type Key =
   | NonModifierKey
+  | ModifierKey
   | `${ModifierKey}+${NonModifierKey}`
   | `${ModifierKey}+${ModifierKey}+${NonModifierKey}`
   | `${ModifierKey}+${ModifierKey}+${ModifierKey}+${NonModifierKey}`;

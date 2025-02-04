@@ -1,5 +1,4 @@
 import "./styles.css";
-import InputField from "./components/InputField";
 import HelpButton from "./components/Help";
 export const ShowCase = () => {
   return (
@@ -9,7 +8,7 @@ export const ShowCase = () => {
           <h1>Todo List</h1>
           <HelpButton />
         </div>
-        <InputField />
+        {/* <InputField /> */}
       </div>
     </div>
   );

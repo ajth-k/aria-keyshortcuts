@@ -17,7 +17,7 @@ const InputField = () => {
     },
   });
   const { keyCap: focusKeyCap } = useKeyShortcut({
-    key: "Fn+/",
+    key: "Alt+/",
     action: () => {
       ref.current?.focus();
     },
