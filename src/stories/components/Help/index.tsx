@@ -1,3 +1,4 @@
+import Kbd from "../../../components/Kbd";
 import useKeyShortcut from "../../../hooks/useKeyShortcut";
 
 const HelpButton = () => {
@@ -7,7 +8,11 @@ const HelpButton = () => {
       alert("Alert");
     },
   });
-  return <button>--help {JSON.stringify(keyCap)}</button>;
+  return (
+    <button>
+      --help <Kbd keycaps={keyCap} />
+    </button>
+  );
 };
 
 export default HelpButton;
