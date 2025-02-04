@@ -3,7 +3,7 @@ import useKeyShortcut from "../../../hooks/useKeyShortcut";
 
 const HelpButton = () => {
   const { keyCap } = useKeyShortcut({
-    key: "Meta+h",
+    key: "Control",
     action: () => {
       alert("Alert");
     },
