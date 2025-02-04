@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import useKeyShortcut from "../../../hooks/useKeyShortcut";
+import Kbd from "../../../components/Kbd";
 
 const InputField = () => {
   const [inputVal, setInputVal] = useState("");
@@ -37,11 +38,12 @@ const InputField = () => {
       <span className="input__kbd">
         {isFocused ? (
           <>
-            Press <kbd>{JSON.stringify(keyCap)}</kbd> to add todo
+            Press <Kbd keycaps={keyCap} />
+            to add todo
           </>
         ) : (
           <>
-            Press <kbd>{JSON.stringify(focusKeyCap)}</kbd> to start typing
+            Press <Kbd keycaps={focusKeyCap} /> to start typing
           </>
         )}
       </span>

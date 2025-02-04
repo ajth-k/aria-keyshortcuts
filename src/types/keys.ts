@@ -115,3 +115,4 @@ export type Key =
   | `${ModifierKey}+${ModifierKey}+${ModifierKey}+${NonModifierKey}`;
 
 export type Scope = "__global" | (string & {});
+export type KeyCap = { symbol: string; key: string };

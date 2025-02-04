@@ -1,8 +1,7 @@
-import { Key } from "../types/keys";
+import { Key, KeyCap } from "../types/keys";
 import { keyMap } from "./map";
 
-export const getKeyCaps = (key: Key) => {
-  if (detectTouchscreen()) return null;
+export const getKeyCaps = (key: Key): KeyCap[] => {
   return key.split("+").map((key) => {
     return { key, symbol: getKeySymbol(key) ?? key };
   });
@@ -11,7 +10,7 @@ export const getKeyCaps = (key: Key) => {
 const getKeySymbol = (key: string) => {
   const symbol = keyMap[key];
   if (!symbol || typeof symbol === "string") return symbol;
-  const userAgent = navigator.userAgent.toLowerCase(),
+  const userAgent = navigator?.userAgent?.toLowerCase(),
     macosPlatforms = /(macintosh|macintel|macppc|mac68k|macos)/i,
     windowsPlatforms = /(win32|win64|windows|wince)/i,
     iosPlatforms = /(iphone|ipad|ipod)/i;
@@ -25,6 +24,7 @@ const getKeySymbol = (key: string) => {
     os = "lin";
   }
 
+  console.log(os);
   return symbol[os];
 };
 
