@@ -22,21 +22,6 @@ const Kbd = (props: KbdProps) => {
     }
   }, []);
   if (isTouchScreen && !shouldShowOnTouch) return;
-  return keycaps.map((keycap) => (
-    <kbd
-      key={keycap.key}
-      style={{
-        border: "1px solid white",
-        borderBottomWidth: "2px",
-        margin: "1px",
-        padding: "3px",
-        height: "fit-content",
-        fontSize: "10px",
-        borderRadius: "5px",
-      }}
-    >
-      {keycap.symbol}
-    </kbd>
-  ));
+  return keycaps.map((keycap) => <kbd key={keycap.key}>{keycap.symbol}</kbd>);
 };
 export default Kbd;
