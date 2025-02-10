@@ -1,19 +1,19 @@
-import { createContext, PropsWithChildren, useState } from "react";
-import { ShortcutContextProps } from "./types";
+import { createContext, PropsWithChildren } from "react";
 
-export type Scope = "__global" | (string & object);
+export type Scope = "__global" | (string & {});
 
-export const ShortcutContext = createContext<ShortcutContextProps | null>(null);
+export const ShortcutContext = createContext<{ scopes: Scope[] }>({
+  scopes: ["__global"],
+});
 
-const KeyShortcutProvider = (props: PropsWithChildren) => {
-  const { children } = props;
-  const [activeScope, setActiveScope] = useState<Scope>("__global");
+const ShortcutScope = (props: PropsWithChildren<{ scopes: Scope[] }>) => {
+  const { children, ...contextProps } = props;
 
   return (
-    <ShortcutContext.Provider value={{ activeScope, setActiveScope }}>
+    <ShortcutContext.Provider value={{ ...contextProps }}>
       {children}
     </ShortcutContext.Provider>
   );
 };
 
-export default KeyShortcutProvider;
+export default ShortcutScope;

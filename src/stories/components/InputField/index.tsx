@@ -13,13 +13,17 @@ const InputField = () => {
     key: "Enter",
     action: addTodo,
     options: {
+      scopes: ["sample"],
       ref,
     },
   });
   const { keyCap: focusKeyCap } = useKeyShortcut({
-    key: "Alt+/",
+    key: "Meta+m",
     action: () => {
       ref.current?.focus();
+    },
+    options: {
+      scopes: ["sample"],
     },
   });
   return (
