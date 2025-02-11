@@ -18,7 +18,7 @@ pnpm add react-aria-keyshortcuts
 
 To trigger an action when a specific hotkey is pressed and the associated element is in focus, pass the element's `ref`, the `hotkey`, and the `action` to the **useKeyboardShortcut** hook.
 
-```jsx
+```javascript
 import Kbd from "react-aria-keyshortcuts/components/Kbd";
 import useKeyShortcut from "react-aria-keyshortcuts/hooks/useKeyShortcut";
 
@@ -44,7 +44,7 @@ return (
 
 If no `ref` is provided, the action will be registered as a global hotkey, meaning it will trigger whenever the specified hotkeys are pressed
 
-```jsx
+```javascript
 import { useShortcutKey } from "react-aria-keyshortcuts";
 
 const action = () => {
