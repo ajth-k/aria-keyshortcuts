@@ -21,14 +21,6 @@ yarn add react-aria-keyshortcuts
 pnpm add react-aria-keyshortcuts
 ```
 
-### Add `ShortcutProvider`
-
-```jsx
-import { ShortcutProvider } from "react-aria-keyshortcuts";
-
-<ShortcutProvider>{childre}</ShortcutProvider>;
-```
-
 ### Adding hotKey to a trigger
 
 To trigger an action when a specific hotkey is pressed and the associated element is in focus, pass the element's `ref`, the `hotkey`, and the `action` to the **useKeyboardShortcut** hook.
