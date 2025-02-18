@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "ladle serve",
-    "prepare": "lefthook install",
+    "prepare": "lefthook install || true",
     "build": "tsup",
     "ci:publish": "pnpm build && changeset publish --access public",
     "release": "changeset",
