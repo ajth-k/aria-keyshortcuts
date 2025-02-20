@@ -19,6 +19,7 @@ export default [
   pluginReact.configs.flat.recommended,
   {
     rules: {
+      "no-console": "error",
       "react/jsx-uses-react": "off",
       "react/react-in-jsx-scope": "off",
     },
