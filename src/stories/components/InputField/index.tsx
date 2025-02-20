@@ -18,7 +18,7 @@ const InputField = () => {
     },
   });
   const { keyCap: focusKeyCap } = useKeyShortcut({
-    key: "Meta+m",
+    key: "Meta+i",
     action: () => {
       ref.current?.focus();
     },

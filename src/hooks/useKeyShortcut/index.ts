@@ -18,8 +18,6 @@ const useKeyShortcut = <T extends HTMLElement>(args: KeyShortcutProps<T>) => {
     actionRef.current = action;
   });
   const handleKeyPress = useCallback((event: KeyboardEvent) => {
-    console.log(event);
-
     const [targetKey, ...holdedKeys] = key.split("+").reverse();
     const isTargetKeyPressed =
       targetKey === event.key &&

@@ -8,5 +8,6 @@ export default defineConfig({
   sourcemap: true,
   minify: true,
   target: "esnext",
+  external: ["react", "react-dom"],
   outDir: "dist",
 });

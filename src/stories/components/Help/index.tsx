@@ -3,14 +3,14 @@ import useKeyShortcut from "../../../hooks/useKeyShortcut";
 
 const HelpButton = () => {
   const { keyCap } = useKeyShortcut({
-    key: "Control",
+    key: "Meta+m",
     action: () => {
       alert("Alert");
     },
   });
   return (
-    <button>
-      --help <Kbd keycaps={keyCap} />
+    <button className="button__help">
+      --help <Kbd seperator="" keycaps={keyCap} />
     </button>
   );
 };

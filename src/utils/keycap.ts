@@ -24,7 +24,6 @@ const getKeySymbol = (key: string) => {
     os = "lin";
   }
 
-  console.log(os);
   return symbol[os];
 };
 

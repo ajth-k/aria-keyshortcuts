@@ -61,9 +61,9 @@ button {
   padding-left: 5px;
   color: var(--font-color-secondary);
 }
-
-kbd {
-  background-color: black;
-  color: white;
-  padding: 2px;
+.button__help {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
