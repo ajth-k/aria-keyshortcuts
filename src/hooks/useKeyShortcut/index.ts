@@ -39,7 +39,7 @@ const useKeyShortcut = <T extends HTMLElement>(args: KeyShortcutProps<T>) => {
     return () =>
       targetNode.removeEventListener(
         "keydown",
-        handleKeyPress as EventListener
+        handleKeyPress as EventListener,
       );
   }, [handleKeyPress, ref]);
   return {

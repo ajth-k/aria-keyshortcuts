@@ -1,0 +1,28 @@
+html {
+  --text-default: midnightblue;
+  --bg-default: aliceblue;
+  --bg-shadow: lightsteelblue;
+}
+
+html[data-theme="dark"] {
+  --text-default: hsl(0, 0%, 100%);
+  --bg-default: rgb(80, 80, 80);
+  --bg-shadow: rgb(36, 36, 36);
+}
+.rak-kbd:not(:has(.rak-kbd, samp)) {
+  color: var(--text-default);
+  background: var(--bg-default);
+  border-radius: 4px;
+  padding-inline: 4px;
+  box-shadow: 2px 2px 0 3px var(--bg-shadow);
+  margin-inline-end: 0.25ch;
+
+  font-family: monospace;
+}
+.rak-kbd:has(.rak-kbd, samp) {
+  display: inline-flex;
+  gap: 5px;
+}
+.rak-kbd > span:last-child {
+  display: none;
+}

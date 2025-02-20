@@ -1,4 +1,5 @@
 import "./styles.css";
+import "../index.css";
 import HelpButton from "./components/Help";
 import InputField from "./components/InputField";
 import ShortcutScope from "../components/KeyShortcutProvider";
